@@ -340,6 +340,13 @@
     <Compile Include="forms\Postavki\PostavkiE.aspx.designer.cs">
       <DependentUpon>PostavkiE.aspx</DependentUpon>
     </Compile>
+    <Content Include="Images\Icons\car.png" />
+    <Content Include="Images\Icons\lichnost.png" />
+    <Content Include="Images\Icons\postavki.png" />
+    <Content Include="Images\Icons\sklad.png" />
+    <Content Include="Images\Icons\tovar.png" />
+    <Content Include="Images\logo-1st-theme.jpg" />
+    <Content Include="Images\logo-2st-theme.png" />
     <Content Include="Web.sitemap" />
     <Content Include="forms\Sklad\SkladE.aspx" />
     <Compile Include="forms\Sklad\SkladE.aspx.cs">
@@ -1048,6 +1055,7 @@
     <Content Include="Xml\Bindings\ExampleE.xml" />
     <Content Include="Xml\Sitemaps\Empty.sitemap" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

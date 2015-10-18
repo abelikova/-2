@@ -12,6 +12,7 @@
     using ICSSoft.STORMNET.Web.Tools;
 
     using NewPlatform.Flexberry.Web.Themeable;
+    using System.Web.UI.WebControls;
 
     /// <summary>
     /// Класс мастер-страницы приложения.
@@ -207,6 +208,19 @@
                 treeviewHideSpan.Attributes["class"] = "Hide";
                 treeviewShowSpan.Attributes["class"] = String.Empty;
             }
+        }
+
+        /// <summary>
+        /// Метод для отображения иконок в меню системы.
+        /// </summary>
+        protected void TreeView1_TreeNodeDataBound(object sender, TreeNodeEventArgs e)
+        {
+            // Reference the underlying SiteMapNode object...
+            SiteMapNode nodeFromSiteMap = (SiteMapNode)e.Node.DataItem;
+            // If we have an imageUrl value, assign it to the TreeView node's ImageUrl property
+            if (nodeFromSiteMap["imageUrl"] != null)
+                if(themesList.Text != "Smart")
+                    e.Node.ImageUrl = System.IO.Path.Combine("~/Images/Icons/", nodeFromSiteMap["imageUrl"]);
         }
     }
 }
