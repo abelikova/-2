@@ -5,16 +5,14 @@ namespace IIS.Склад
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.Web.Controls;
     using ICSSoft.STORMNET.Web.AjaxControls;
-    using System.Web.UI.WebControls;
-    using ICSSoft.STORMNET.FunctionalLanguage;
-    using ICSSoft.STORMNET.FunctionalLanguage.SQLWhere;
-    using ICSSoft.STORMNET.Web.Tools.Monads;
-    using ICSSoft.STORMNET.Web.Tools.WOLVFeatures;
-    using ICSSoft.STORMNET.Business.LINQProvider;
-    using ICSSoft.STORMNET.UserDataTypes;
     using ICSSoft.STORMNET.Web.Tools;
-    using ICSSoft.STORMNET.Windows.Forms;
+    using System;
+    using System.Collections.Generic;
     using ICSSoft.STORMNET.Business;
+    using ICSSoft.STORMNET.Business.LINQProvider;
+    using System.Linq;
+    using ICSSoft.STORMNET.Windows.Forms;
+    using ICSSoft.STORMNET.FunctionalLanguage;
 
     public partial class СкладE : BaseEditForm<Склад>
     {
@@ -39,6 +37,9 @@ namespace IIS.Склад
         /// </summary>
         protected override void Preload()
         {
+            ctrlТоварНаСкладе.Operations.Delete = false;
+            ctrlТоварНаСкладе.Operations.Add = false;
+            ctrlТоварНаСкладе.Operations.PlusInRow = false;
         }
 
         /// <summary>
@@ -46,23 +47,41 @@ namespace IIS.Склад
         /// </summary>
         protected override void PreApplyToControls()
         {
-            /*if (!IsPostBack && (DataObject == null || DataObject.GetStatus(true) == ObjectStatus.Created))
+            if (!IsPostBack && (DataObject == null || DataObject.GetStatus(true) != ObjectStatus.Created))
             {
                 var langdef = ExternalLangDef.LanguageDef;
                 var lcs = LoadingCustomizationStruct.GetSimpleStruct(typeof(Товар), Товар.Views.ТоварE);
                 lcs.LimitFunction = langdef.GetFunction(langdef.funcEQ,
-                                new VariableDef(langdef.GuidType, Information.ExtractPropertyPath<Товар>(x => x.__PrimaryKey)), "172E31C1-78A0-42BA-A8B4-3A5FDC682B61");
-                var товар = DataServiceProvider.DataService.LoadObjects(lcs);
+                                new VariableDef(langdef.GuidType, Information.ExtractPropertyName<Товар>(x => x.__PrimaryKey)), "172E31C1-78A0-42BA-A8B4-3A5FDC682B61");
+                //var товар = DataServiceProvider.DataService.LoadObjects(lcs);
 
+
+                var ds = (SQLDataService)DataServiceProvider.DataService;
+                var workers = ds.Query<Поставки>(Поставки.Views.ПоставкиL);
+                var query = from w in workers
+                                    where w.Склад == DataObject
+                                    select w;
+                List<Поставки> data = query.ToList(); // Вычитать данные в коллекцию.
+                List<Поставки> data2 = data.GroupBy(t => t.Товар)
+                    .Select(cl => new Поставки
+                    {
+                        Товар = cl.First().Товар,
+                        Количестсво = cl.Sum(q => q.Количестсво),
+                    }).ToList();
                 var sklad = new Склад();
-                var foots = new DetailArrayOfТоварНаСкладе(sklad)
+                data2.ForEach(delegate (Поставки name)
                 {
-                     new ТоварНаСкладе { Количество = 10 },
-                     //new ТоварНаСкладе { Товар = товар }
-                };
-                sklad.ТоварНаСкладе = foots;
-                DataObject = sklad;
-            }*/
+                    //var foots = new DetailArrayOfТоварНаСкладе(sklad)
+                    var foots = new ТоварНаСкладе { Товар = name.Товар, Количество = name.Количестсво };
+                /*{
+                     new ТоварНаСкладе { Товар = name.Товар,
+                         Количество = name.Количестсво }
+                     //new ТоварНаСкладе { Товар = data[0].Товар }
+                };*/
+                   sklad.ТоварНаСкладе.Add(foots); 
+                });
+                    DataObject = sklad;
+            }
         }
 
         /// <summary>

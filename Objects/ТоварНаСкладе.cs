@@ -38,6 +38,8 @@ namespace IIS.Склад
     public class ТоварНаСкладе : ICSSoft.STORMNET.DataObject
     {
         
+        private double fКоличество;
+        
         private IIS.Склад.Товар fТовар;
         
         private IIS.Склад.Склад fСклад;
@@ -53,20 +55,28 @@ namespace IIS.Склад
         // *** Start programmer edit section *** (ТоварНаСкладе.Количество CustomAttributes)
 
         // *** End programmer edit section *** (ТоварНаСкладе.Количество CustomAttributes)
-        [ICSSoft.STORMNET.NotStored()]
         public virtual double Количество
         {
             get
             {
-                // *** Start programmer edit section *** (ТоварНаСкладе.Количество Get)
-                return 0;
-                // *** End programmer edit section *** (ТоварНаСкладе.Количество Get)
+                // *** Start programmer edit section *** (ТоварНаСкладе.Количество Get start)
+
+                // *** End programmer edit section *** (ТоварНаСкладе.Количество Get start)
+                double result = this.fКоличество;
+                // *** Start programmer edit section *** (ТоварНаСкладе.Количество Get end)
+
+                // *** End programmer edit section *** (ТоварНаСкладе.Количество Get end)
+                return result;
             }
             set
             {
-                // *** Start programmer edit section *** (ТоварНаСкладе.Количество Set)
+                // *** Start programmer edit section *** (ТоварНаСкладе.Количество Set start)
 
-                // *** End programmer edit section *** (ТоварНаСкладе.Количество Set)
+                // *** End programmer edit section *** (ТоварНаСкладе.Количество Set start)
+                this.fКоличество = value;
+                // *** Start programmer edit section *** (ТоварНаСкладе.Количество Set end)
+
+                // *** End programmer edit section *** (ТоварНаСкладе.Количество Set end)
             }
         }
         

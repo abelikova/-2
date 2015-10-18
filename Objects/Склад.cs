@@ -32,9 +32,11 @@ namespace IIS.Склад
             "Название as \'Название\'",
             "Вместимость as \'Вместимость\'",
             "ВладелецСклада as \'Владелец склада\'",
-            "ВладелецСклада.ФИО as \'ФИО\'"})]
-    [AssociatedDetailViewAttribute("СкладE", "ТоварНаСкладе", "ТоварНаСкладеE", true, "", "Товар на складе", true, new string[] {
+            "ВладелецСклада.ФИО as \'ФИО\'"}, Hidden=new string[] {
+            "ВладелецСклада.ФИО"})]
+    [AssociatedDetailViewAttribute("СкладE", "ТоварНаСкладе", "ТоварНаСкладеE", true, "-Товары на складе", "Товар на складе", true, new string[] {
             ""})]
+    [MasterViewDefineAttribute("СкладE", "ВладелецСклада", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "ФИО")]
     [View("СкладL", new string[] {
             "Название as \'Название\'",
             "Вместимость as \'Вместимость\'",

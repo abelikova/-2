@@ -50,6 +50,43 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System">
+      <HintPath>System</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>System.Data</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>System.Drawing</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>System.Linq</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>System.Web</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <HintPath>System.Web.Extensions</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions.Design">
+      <HintPath>System.Web.Extensions.Design</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <HintPath>System.Web.Services</HintPath>
+    </Reference>
+    <Reference Include="System.XML">
+      <HintPath>System.XML</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>System.Xml.Linq</HintPath>
+    </Reference>
+    <Reference Include="System.Workflow.Runtime">
+      <HintPath>System.Workflow.Runtime</HintPath>
+    </Reference>
+    <ProjectReference Include="..\Objects\Склад(Objects).csproj">
+      <Project>{b43b8e1e-3675-418e-be46-4fe268ad8a26}</Project>
+      <Name>Склад(Objects)</Name>
+    </ProjectReference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-client\log4net.dll</HintPath>
     </Reference>
@@ -285,43 +322,6 @@
     <Reference Include="Stimulsoft.Report.WebDesignSL">
       <HintPath>..\packages\NewPlatform.Flexberry.AspNet.1.4.1\lib\net40\Stimulsoft.Report.WebDesignSL.dll</HintPath>
     </Reference>
-    <Reference Include="System">
-      <HintPath>System</HintPath>
-    </Reference>
-    <Reference Include="System.Data">
-      <HintPath>System.Data</HintPath>
-    </Reference>
-    <Reference Include="System.Drawing">
-      <HintPath>System.Drawing</HintPath>
-    </Reference>
-    <Reference Include="System.Linq">
-      <HintPath>System.Linq</HintPath>
-    </Reference>
-    <Reference Include="System.Web">
-      <HintPath>System.Web</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Extensions">
-      <HintPath>System.Web.Extensions</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Extensions.Design">
-      <HintPath>System.Web.Extensions.Design</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Services">
-      <HintPath>System.Web.Services</HintPath>
-    </Reference>
-    <Reference Include="System.XML">
-      <HintPath>System.XML</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-      <HintPath>System.Xml.Linq</HintPath>
-    </Reference>
-    <Reference Include="System.Workflow.Runtime">
-      <HintPath>System.Workflow.Runtime</HintPath>
-    </Reference>
-    <ProjectReference Include="..\Objects\Склад%28Objects%29.csproj">
-      <Project>{b43b8e1e-3675-418e-be46-4fe268ad8a26}</Project>
-      <Name>Склад%28Objects%29</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="forms\Tovar\TovarE.aspx" />
@@ -977,24 +977,15 @@
     <Content Include="App_Themes\Smart\_VariablesBasic.less" />
     <None Include="packages.config" />
     <Compile Include="forms\BaseEditForm.cs">
-      <DependentUpon>
-      </DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="forms\BaseListForm.cs">
-      <DependentUpon>
-      </DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="forms\LookUpForm.cs">
-      <DependentUpon>
-      </DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormUtils.cs">
-      <DependentUpon>
-      </DependentUpon>
-    </Compile>
+    <Compile Include="FormUtils.cs" />
     <Content Include="Web.config" />
     <Content Include="Site1.Master" />
     <Compile Include="Site1.Master.cs">

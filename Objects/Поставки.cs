@@ -35,14 +35,26 @@ namespace IIS.Склад
             "Склад.Название as \'Название\'",
             "Товар as \'Товар\'",
             "Товар.Наименование as \'Наименование\'",
+            "Машина.ВладелецМашины",
+            "Машина.ВладелецМашины.ФИО",
             "Машина as \'Машина\'",
-            "Машина.Марка as \'Марка\'"})]
+            "Машина.Марка as \'Марка\'"}, Hidden=new string[] {
+            "Склад.Название",
+            "Товар.Наименование",
+            "Машина.ВладелецМашины",
+            "Машина.ВладелецМашины.ФИО",
+            "Машина.Марка"})]
+    [MasterViewDefineAttribute("ПоставкиE", "Склад", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "Название")]
+    [MasterViewDefineAttribute("ПоставкиE", "Товар", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "Наименование")]
+    [MasterViewDefineAttribute("ПоставкиE", "Машина", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "ВладелецМашины.ФИО")]
     [View("ПоставкиL", new string[] {
             "Количестсво as \'Количестсво\'",
             "Дата as \'Дата\'",
             "Склад.Название as \'Название\'",
             "Товар.Наименование as \'Наименование\'",
-            "Машина.Марка as \'Марка\'"})]
+            "Машина.Марка as \'Марка\'",
+            "Склад"}, Hidden=new string[] {
+            "Склад"})]
     public class Поставки : ICSSoft.STORMNET.DataObject
     {
         

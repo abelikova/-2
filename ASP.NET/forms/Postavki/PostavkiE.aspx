@@ -40,26 +40,12 @@ ErrorMessage="Не указано: Склад" EnableClientScript="true" Validat
 
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlСклад_НазваниеLabel" runat="server" Text="Название" EnableViewState="False">
-</asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlСклад_Название" runat="server" ReadOnly="true">
-</asp:TextBox>
-
-</div>
-<div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlТоварLabel" runat="server" Text="Товар" EnableViewState="False">
 </asp:Label>
 <ac:MasterEditorAjaxLookUp ID="ctrlТовар" CssClass="descTxt" runat="server" ShowInThickBox="True" Autocomplete="true" />
 
 <asp:RequiredFieldValidator ID="ctrlТоварValidator" runat="server" ControlToValidate="ctrlТовар"
 ErrorMessage="Не указано: Товар" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
-
-</div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlТовар_НаименованиеLabel" runat="server" Text="Наименование" EnableViewState="False">
-</asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlТовар_Наименование" runat="server" ReadOnly="true">
-</asp:TextBox>
 
 </div>
 <div class="clearfix">
@@ -70,19 +56,6 @@ ErrorMessage="Не указано: Товар" EnableClientScript="true" Validat
 <asp:RequiredFieldValidator ID="ctrlМашинаValidator" runat="server" ControlToValidate="ctrlМашина"
 ErrorMessage="Не указано: Машина" EnableClientScript="true" ValidationGroup="savedoc">*</asp:RequiredFieldValidator>
 
-</div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlМашина_МаркаLabel" runat="server" Text="Марка" EnableViewState="False">
-</asp:Label>
-<asp:DropDownList ID="ctrlМашина_Марка" CssClass="descTxt" runat="server" Enabled="false">
-	<asp:ListItem>Mazda</asp:ListItem>
-<asp:ListItem>Mersedes</asp:ListItem>
-<asp:ListItem>BMW</asp:ListItem>
-<asp:ListItem>Mitsubishi</asp:ListItem>
-<asp:ListItem>Lexus</asp:ListItem>
-<asp:ListItem>Renault</asp:ListItem>
-
-</asp:DropDownList>
 </div>
 <br/>
 
