@@ -219,8 +219,7 @@
             SiteMapNode nodeFromSiteMap = (SiteMapNode)e.Node.DataItem;
             // If we have an imageUrl value, assign it to the TreeView node's ImageUrl property
             if (nodeFromSiteMap["imageUrl"] != null)
-                if(themesList.Text != "Smart")
-                    e.Node.ImageUrl = System.IO.Path.Combine("~/Images/Icons/", nodeFromSiteMap["imageUrl"]);
+                e.Node.ImageUrl = System.IO.Path.Combine("~/Images/Icons/", nodeFromSiteMap["imageUrl"]);
         }
     }
 }
