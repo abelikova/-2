@@ -340,11 +340,16 @@
     <Compile Include="forms\Postavki\PostavkiE.aspx.designer.cs">
       <DependentUpon>PostavkiE.aspx</DependentUpon>
     </Compile>
-    <Content Include="Images\Icons\car.png" />
-    <Content Include="Images\Icons\lichnost.png" />
-    <Content Include="Images\Icons\postavki.png" />
-    <Content Include="Images\Icons\sklad.png" />
-    <Content Include="Images\Icons\tovar.png" />
+    <Content Include="Images\Icons\Default\car.png" />
+    <Content Include="Images\Icons\Default\lichnost.png" />
+    <Content Include="Images\Icons\Default\postavki.png" />
+    <Content Include="Images\Icons\Default\sklad.png" />
+    <Content Include="Images\Icons\Default\tovar.png" />
+    <Content Include="Images\Icons\Smart\car.png" />
+    <Content Include="Images\Icons\Smart\lichnost.png" />
+    <Content Include="Images\Icons\Smart\postavki.png" />
+    <Content Include="Images\Icons\Smart\sklad.png" />
+    <Content Include="Images\Icons\Smart\tovar.png" />
     <Content Include="Images\logo-1st-theme.jpg" />
     <Content Include="Images\logo-2st-theme.png" />
     <Content Include="Web.sitemap" />

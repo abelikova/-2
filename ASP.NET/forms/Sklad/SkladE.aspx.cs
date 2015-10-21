@@ -40,6 +40,7 @@ namespace IIS.Склад
             ctrlТоварНаСкладе.Operations.Delete = false;
             ctrlТоварНаСкладе.Operations.Add = false;
             ctrlТоварНаСкладе.Operations.PlusInRow = false;
+            ctrlТоварНаСкладе.Operations.DeleteInRow = false;
         }
 
         /// <summary>

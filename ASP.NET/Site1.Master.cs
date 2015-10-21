@@ -219,7 +219,10 @@
             SiteMapNode nodeFromSiteMap = (SiteMapNode)e.Node.DataItem;
             // If we have an imageUrl value, assign it to the TreeView node's ImageUrl property
             if (nodeFromSiteMap["imageUrl"] != null)
-                e.Node.ImageUrl = System.IO.Path.Combine("~/Images/Icons/", nodeFromSiteMap["imageUrl"]);
+                if(themesList.Text == "Default")
+                    e.Node.ImageUrl = System.IO.Path.Combine("~/Images/Icons/Default/", nodeFromSiteMap["imageUrl"]);
+                else if(themesList.Text == "Smart")
+                    e.Node.ImageUrl = System.IO.Path.Combine("~/Images/Icons/Smart/", nodeFromSiteMap["imageUrl"]);
         }
     }
 }
