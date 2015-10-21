@@ -166,7 +166,7 @@
     <value>Загрузка</value>
   </data>
   <data name="Home_Page" xml:space="preserve">
-    <value>Стартовая страница</value>
+    <value></value>
   </data>
   <data name="Error_Occurred" xml:space="preserve">
     <value>Произошла ошибка</value>
