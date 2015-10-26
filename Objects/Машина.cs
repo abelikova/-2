@@ -44,7 +44,7 @@ namespace IIS.Склад
         
         private IIS.Склад.tМаркаМашины fМарка;
         
-        private int fГрузоподъемность;
+        private double fГрузоподъемность;
         
         private IIS.Склад.Личность fВладелецМашины;
         
@@ -90,14 +90,14 @@ namespace IIS.Склад
         // *** Start programmer edit section *** (Машина.Грузоподъемность CustomAttributes)
 
         // *** End programmer edit section *** (Машина.Грузоподъемность CustomAttributes)
-        public virtual int Грузоподъемность
+        public virtual double Грузоподъемность
         {
             get
             {
                 // *** Start programmer edit section *** (Машина.Грузоподъемность Get start)
 
                 // *** End programmer edit section *** (Машина.Грузоподъемность Get start)
-                int result = this.fГрузоподъемность;
+                double result = this.fГрузоподъемность;
                 // *** Start programmer edit section *** (Машина.Грузоподъемность Get end)
 
                 // *** End programmer edit section *** (Машина.Грузоподъемность Get end)

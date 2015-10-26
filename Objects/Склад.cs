@@ -46,7 +46,7 @@ namespace IIS.Склад
         
         private string fНазвание;
         
-        private int fВместимость;
+        private double fВместимость;
         
         private IIS.Склад.Личность fВладелецСклада;
         
@@ -95,14 +95,14 @@ namespace IIS.Склад
         // *** Start programmer edit section *** (Склад.Вместимость CustomAttributes)
 
         // *** End programmer edit section *** (Склад.Вместимость CustomAttributes)
-        public virtual int Вместимость
+        public virtual double Вместимость
         {
             get
             {
                 // *** Start programmer edit section *** (Склад.Вместимость Get start)
 
                 // *** End programmer edit section *** (Склад.Вместимость Get start)
-                int result = this.fВместимость;
+                double result = this.fВместимость;
                 // *** Start programmer edit section *** (Склад.Вместимость Get end)
 
                 // *** End programmer edit section *** (Склад.Вместимость Get end)

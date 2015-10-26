@@ -58,7 +58,7 @@ namespace IIS.Склад
     public class Поставки : ICSSoft.STORMNET.DataObject
     {
         
-        private int fКоличестсво;
+        private double fКоличестсво;
         
         private System.DateTime fДата;
         
@@ -79,14 +79,14 @@ namespace IIS.Склад
         // *** Start programmer edit section *** (Поставки.Количестсво CustomAttributes)
 
         // *** End programmer edit section *** (Поставки.Количестсво CustomAttributes)
-        public virtual int Количестсво
+        public virtual double Количестсво
         {
             get
             {
                 // *** Start programmer edit section *** (Поставки.Количестсво Get start)
 
                 // *** End programmer edit section *** (Поставки.Количестсво Get start)
-                int result = this.fКоличестсво;
+                double result = this.fКоличестсво;
                 // *** Start programmer edit section *** (Поставки.Количестсво Get end)
 
                 // *** End programmer edit section *** (Поставки.Количестсво Get end)
