@@ -76,26 +76,7 @@ namespace IIS.Склад
 
         protected override void PostSaveObject()
         {
-            var t = new ТоварНаСкладе()
-                        {
-                            Склад = DataObject.Склад,
-                            Товар = DataObject.Товар
-                        };
-            var ds = (SQLDataService)DataServiceProvider.DataService;
-
-            /*var allGoodsOnSklad = ds.Query<ТоварНаСкладе>(ТоварНаСкладе.Views.ТоварНаСкладеL.Name);
-
-            // var goodsC = allNews.All(t => t.Черновик == false);
-            var news = (from curNew in allNews
-                        /*where curNew.Черновик == false
-                        /* &&
-                         /*(curNew.Территория == null)
-                         ||
-                         curNew.Территория == OMSUCurrentUserService.Instance.ТекущаяТерритория)
-                        select curNew);
-            var q = news;*/
-
-            ds.UpdateObject(t);
+ 
         }
     }
 }

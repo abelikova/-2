@@ -31,9 +31,9 @@ namespace IIS.Склад
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("ТоварНаСкладеE", new string[] {
             "Склад",
-            "Количество2 as \'Количество2\'",
             "Товар.Наименование",
-            "Товар"}, Hidden=new string[] {
+            "Товар",
+            "Количество"}, Hidden=new string[] {
             "Склад",
             "Товар.Наименование"})]
     [MasterViewDefineAttribute("ТоварНаСкладеE", "Товар", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "Наименование")]
@@ -91,8 +91,7 @@ namespace IIS.Склад
 
         // *** End programmer edit section *** (ТоварНаСкладе.Количество2 CustomAttributes)
         [ICSSoft.STORMNET.NotStored()]
-        [DataServiceExpression(typeof(ICSSoft.STORMNET.Business.SQLDataService), "select sum(Количестсво) from Поставки p, (select Склад, Товар from ТоварНаСкладе " +
-            "where Склад = p.Склад) as t where p.Склад=t.Склад and p.Товар=t.Товар")]
+        [DataServiceExpression(typeof(ICSSoft.STORMNET.Business.SQLDataService), "Select Sum(Количество) from Поставки where Товар  = @Товар@ and  Склад = @Склад@")]
         public virtual double Количество2
         {
             get

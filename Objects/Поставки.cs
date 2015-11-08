@@ -12,6 +12,7 @@ namespace IIS.Склад
 {
     using System;
     using System.Xml;
+    using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
     
     
@@ -26,6 +27,7 @@ namespace IIS.Склад
     // *** Start programmer edit section *** (Поставки CustomAttributes)
 
     // *** End programmer edit section *** (Поставки CustomAttributes)
+    [BusinessServer("IIS.Склад.ПоставкиБС, Склад(BusinessServers)", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("ПоставкиE", new string[] {
@@ -36,17 +38,17 @@ namespace IIS.Склад
             "Товар as \'Товар\'",
             "Товар.Наименование as \'Наименование\'",
             "Машина.ВладелецМашины",
-            "Машина.ВладелецМашины.ФИО",
+            "Машина.ВладелецМашины.Фамилия",
             "Машина as \'Машина\'",
             "Машина.Марка as \'Марка\'"}, Hidden=new string[] {
             "Склад.Название",
             "Товар.Наименование",
             "Машина.ВладелецМашины",
-            "Машина.ВладелецМашины.ФИО",
+            "Машина.ВладелецМашины.Фамилия",
             "Машина.Марка"})]
     [MasterViewDefineAttribute("ПоставкиE", "Склад", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "Название")]
     [MasterViewDefineAttribute("ПоставкиE", "Товар", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "Наименование")]
-    [MasterViewDefineAttribute("ПоставкиE", "Машина", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "ВладелецМашины.ФИО")]
+    [MasterViewDefineAttribute("ПоставкиE", "Машина", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "Марка")]
     [View("ПоставкиL", new string[] {
             "Количестсво as \'Количестсво\'",
             "Дата as \'Дата\'",

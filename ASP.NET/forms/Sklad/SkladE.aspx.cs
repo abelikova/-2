@@ -13,6 +13,7 @@ namespace IIS.Склад
     using System.Linq;
     using ICSSoft.STORMNET.Windows.Forms;
     using ICSSoft.STORMNET.FunctionalLanguage;
+    using ICSSoft.STORMNET.Web.Tools.WGEFeatures;
 
     public partial class СкладE : BaseEditForm<Склад>
     {
@@ -37,40 +38,21 @@ namespace IIS.Склад
         /// </summary>
         protected override void Preload()
         {
+            //АГЕ ТоварНаСкладе сугубо для чтения, строки добавляются при добавлении поставок, руками в АГЕ ничего не добавляется
             ctrlТоварНаСкладе.Operations.Delete = false;
             ctrlТоварНаСкладе.Operations.Add = false;
             ctrlТоварНаСкладе.Operations.PlusInRow = false;
             ctrlТоварНаСкладе.Operations.DeleteInRow = false;
-        }
+            ctrlТоварНаСкладе.Enabled = false;
+            ctrlТоварНаСкладе.AddLookUpSettings(Information.ExtractPropertyPath<ТоварНаСкладе>(r => r.Товар), 
+                new LookUpSetting { LookUpBtnVisible = false, LookUpClearBtnVisible = false });}
 
         /// <summary>
         /// Здесь лучше всего писать бизнес-логику, оперируя только объектом данных.
         /// </summary>
         protected override void PreApplyToControls()
         {
-            //подсчитываем количество товаров на складе
-            if (!IsPostBack && (DataObject == null || DataObject.GetStatus(true) != ObjectStatus.Created))
-            {
-                var ds = (SQLDataService)DataServiceProvider.DataService;
-                var всеПоставки = ds.Query<Поставки>(Поставки.Views.ПоставкиL);
-                var query = from п in всеПоставки
-                                    where п.Склад == DataObject
-                                    select п;
-                List<Поставки> поставкиНаСклад = query.ToList(); 
-                List<Поставки> сгруппированныеПоставки = поставкиНаСклад.GroupBy(t => t.Товар)
-                    .Select(cl => new Поставки
-                    {
-                        Товар = cl.First().Товар,
-                        Количестсво = cl.Sum(q => q.Количестсво),
-                    }).ToList();
-                var склад = new Склад();
-                сгруппированныеПоставки.ForEach(delegate (Поставки name)
-                {
-                    var товарНаСкладе = new ТоварНаСкладе { Товар = name.Товар, Количество = name.Количестсво };
-                    DataObject.ТоварНаСкладе.Add(товарНаСкладе); 
-                });
-                    //DataObject.ТоварНаСкладе.Add(foots);
-            }
+
         }
 
         /// <summary>
@@ -79,7 +61,7 @@ namespace IIS.Склад
         /// </summary>
         protected override void PostApplyToControls()
         {
-            Page.Validate();
+
         }
 
         /// <summary>
@@ -89,22 +71,5 @@ namespace IIS.Склад
         {
         }
 
-        /// <summary>
-        /// Валидация объекта для сохранения.
-        /// </summary>
-        /// <returns>true - продолжать сохранение, иначе - прекратить.</returns>
-        protected override bool PreSaveObject()
-        {
-            return base.PreSaveObject();
-        }
-
-        /// <summary>
-        /// Нетривиальная логика сохранения объекта.
-        /// </summary>
-        /// <returns>Объект данных, который сохранился.</returns>
-        protected override DataObject SaveObject()
-        {
-            return base.SaveObject();
-        }
     }
 }
